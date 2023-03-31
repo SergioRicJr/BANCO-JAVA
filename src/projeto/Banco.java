@@ -1,5 +1,6 @@
 package projeto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Banco {
@@ -7,8 +8,21 @@ public class Banco {
 
     //relação de composição
     //As contas estariam compondo o banco
-    private List<Cliente> cliente;
-    
+    public List<Cliente> clientes;
+
+    public Banco(String nome){
+        this.clientes = new ArrayList<>();
+        this.nome = nome;
+    }
+
+    public void addCliente(Cliente cliente){
+        this.clientes.add(cliente);
+    }
+
+    public void listarClientes(){
+        System.out.println(this.clientes);
+    }
+
     public String getNome() {
         return nome;
     }

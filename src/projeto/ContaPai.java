@@ -7,10 +7,14 @@ public abstract class ContaPai implements Iconta{
     protected double saldo;
     private static int agenciaPadrao = 1;
     private static int SEQUENCIAL = 001;
+    private Banco banco;
+    private Cliente cliente;
     // referenciar metodo estatico ou variavel, coloca nome da classe e nao this
-    public ContaPai(){
+    public ContaPai(Cliente cliente, Banco banco){
         this.agencia = ContaPai.agenciaPadrao;
         this.numero = SEQUENCIAL++;
+        this.banco = banco;
+        this.cliente = cliente;
         //Cada vez que a conta for instanciada vai adicionar 1
 
     }
@@ -46,6 +50,7 @@ public abstract class ContaPai implements Iconta{
     protected void imprimirInfoComum(){
         //%d é sem numero apos a virgula
         //%.2f -- 2 casas apos a virgula
+        System.out.println("Nome cliente: " + this.cliente);
         System.out.println(String.format("Agencia %d", agencia));
         System.out.println(String.format("Número %d", numero));
         System.out.println(String.format("Saldo %.2f", saldo));
